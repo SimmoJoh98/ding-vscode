@@ -4,6 +4,7 @@
   "description": "Syntax highlighting and LSP for Ding (.dg)",
   "version": "0.1.0",
   "publisher": "simmojoh98",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/SimmoJoh98/ding-vscode.git"
