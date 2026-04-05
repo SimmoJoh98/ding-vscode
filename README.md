@@ -1,12 +1,13 @@
 # Ding Language Support for VSCode
 
+Spec'd, dreamt, and reviewed by me, written through Claude.
 Syntax highlighting, error diagnostics, and IntelliSense for the Ding programming language.
 
 ## Requirements
 
 - Ding compiler installed and on PATH
   - Install: [dinglang.dev](https://dinglang.dev)
-  - Or: `gh repo clone Simmoloh98/dinglang`
+  - Or: `gh repo clone Simmojoh98/dinglang`
 
 ## Features
 
