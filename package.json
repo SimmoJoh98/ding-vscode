@@ -1,0 +1,86 @@
+{
+  "name": "ding-vscode",
+  "displayName": "Ding Language Support",
+  "description": "Syntax highlighting and LSP for Ding (.dg)",
+  "version": "0.1.0",
+  "publisher": "simmojoh98",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [],
+  "contributes": {
+    "languages": [
+      {
+        "id": "ding",
+        "aliases": [
+          "Ding",
+          "dinglang"
+        ],
+        "extensions": [
+          ".dg"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icons/ding-light.png",
+          "dark": "./icons/ding-dark.png"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "ding",
+        "scopeName": "source.ding",
+        "path": "./syntaxes/ding.tmLanguage.json"
+      }
+    ],
+    "configuration": {
+      "title": "Ding",
+      "properties": {
+        "ding.serverPath": {
+          "type": "string",
+          "default": "ding",
+          "description": "Path to the ding binary"
+        },
+        "ding.trace.server": {
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "LSP communication tracing"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "ding.run",
+        "title": "Ding: Run current file"
+      },
+      {
+        "command": "ding.build",
+        "title": "Ding: Build current file"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.0.0",
+    "typescript": "^5.3.0"
+  }
+}

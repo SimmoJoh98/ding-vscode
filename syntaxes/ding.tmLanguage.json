@@ -1,0 +1,132 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Ding",
+  "scopeName": "source.ding",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#constants" },
+    { "include": "#types" },
+    { "include": "#keywords" },
+    { "include": "#decorators" },
+    { "include": "#type-annotations" },
+    { "include": "#functions" },
+    { "include": "#struct-names" },
+    { "include": "#operators" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.block.ding",
+          "begin": "/\\*",
+          "end": "\\*/"
+        },
+        {
+          "name": "comment.line.double-slash.ding",
+          "match": "//.*$"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        { "include": "#template-string" },
+        { "include": "#module-path" },
+        { "include": "#double-string" },
+        { "include": "#single-string" }
+      ]
+    },
+    "template-string": {
+      "name": "string.template.ding",
+      "begin": "`",
+      "end": "`",
+      "patterns": [
+        {
+          "name": "constant.character.escape.ding",
+          "match": "\\\\."
+        },
+        {
+          "name": "meta.template.expression.ding",
+          "begin": "\\$\\{",
+          "beginCaptures": {
+            "0": { "name": "punctuation.definition.template-expression.ding" }
+          },
+          "end": "\\}",
+          "endCaptures": {
+            "0": { "name": "punctuation.definition.template-expression.ding" }
+          },
+          "patterns": [
+            { "include": "$self" }
+          ]
+        }
+      ]
+    },
+    "module-path": {
+      "name": "string.quoted.ding",
+      "match": "'ding:[a-zA-Z_][a-zA-Z0-9_]*'"
+    },
+    "double-string": {
+      "name": "string.quoted.double.ding",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.ding",
+          "match": "\\\\."
+        }
+      ]
+    },
+    "single-string": {
+      "name": "string.quoted.single.ding",
+      "begin": "'",
+      "end": "'",
+      "patterns": [
+        {
+          "name": "constant.character.escape.ding",
+          "match": "\\\\."
+        }
+      ]
+    },
+    "numbers": {
+      "name": "constant.numeric.ding",
+      "match": "\\b\\d+(\\.\\d+)?\\b"
+    },
+    "constants": {
+      "name": "constant.language.ding",
+      "match": "\\b(true|false|null)\\b"
+    },
+    "types": {
+      "name": "storage.type.ding",
+      "match": "\\b(number|int|int8|int16|int32|int64|uint8|uint16|uint32|uint64|byte|float|float32|float64|double|cstring|string|bool)\\b"
+    },
+    "keywords": {
+      "name": "keyword.control.ding",
+      "match": "\\b(const|let|for|while|if|else|return|struct|import|from|in|break|continue|throw|try|catch|finally|as)\\b"
+    },
+    "decorators": {
+      "name": "storage.modifier.ding",
+      "match": "@(memory|thread)\\b"
+    },
+    "type-annotations": {
+      "match": ":\\s*([A-Za-z_][A-Za-z0-9_]*)",
+      "captures": {
+        "1": { "name": "entity.name.type.ding" }
+      }
+    },
+    "functions": {
+      "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(?=\\()",
+      "captures": {
+        "1": { "name": "entity.name.function.ding" }
+      }
+    },
+    "struct-names": {
+      "name": "entity.name.type.ding",
+      "match": "\\b[A-Z][A-Za-z0-9_]*\\b"
+    },
+    "operators": {
+      "name": "keyword.operator.ding",
+      "match": "(=>|==|!=|<=|>=|\\?\\?|\\?\\.|\\.\\.|[=<>+\\-*/!])"
+    }
+  }
+}
