@@ -6,7 +6,7 @@ Syntax highlighting, error diagnostics, and IntelliSense for the Ding programmin
 ## Requirements
 
 - Ding compiler installed and on PATH
-  - Install: [dinglang.dev](https://dinglang.dev)
+  - Install: future host
   - Or: `gh repo clone Simmojoh98/dinglang`
 
 ## Features
