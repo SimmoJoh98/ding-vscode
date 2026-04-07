@@ -70,6 +70,10 @@
       {
         "command": "ding.build",
         "title": "Ding: Build current file"
+      },
+      {
+        "command": "ding.repl",
+        "title": "Ding: Start REPL"
       }
     ]
   },

@@ -54,6 +54,11 @@ export function activate(context: vscode.ExtensionContext): void {
       runInTerminal('build');
       vscode.window.showInformationMessage('Ding: build dispatched');
     }),
+    vscode.commands.registerCommand('ding.repl', () => {
+      const terminal = getOrCreateTerminal();
+      terminal.show();
+      terminal.sendText('ding repl');
+    }),
   );
 }
 
